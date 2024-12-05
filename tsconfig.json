@@ -1,0 +1,20 @@
+{
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"declaration": true,
+		"downlevelIteration": false,
+		"esModuleInterop": true,
+		"lib": ["ESNext", "DOM"],
+		"module": "ESNext", // "NodeNext" //
+		"moduleResolution": "Node", // "Bundler", // "NodeNext", //
+		"noUncheckedIndexedAccess": true,
+		"outDir": "dist",
+		"skipLibCheck": false,
+		"strict": true,
+		"target": "ESNext",
+		"baseUrl": ".",
+		"jsx": "preserve"
+	},
+	"include": ["src"],
+	"exclude": ["examples", "node_modules", "test/no-strict-null-checks"]
+}

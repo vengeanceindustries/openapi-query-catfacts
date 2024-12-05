@@ -1,0 +1,28 @@
+{
+	"name": "@example/openapi-fetch-react-query",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"test:ts": "tsc --noEmit",
+		"dev": "vite dev",
+		"example": "npx openapi-typescript https://myapi.dev/v1/ -o ./src/lib/api/my-openapi-3-schema.d.ts",
+		"generate": "npx openapi-typescript https://catfact.ninja/docs/api-docs.json -o ./src/lib/api/v1.d.ts"
+	},
+	"dependencies": {
+		"openapi-fetch": "^0.13.3",
+		"openapi-react-query": "^0.2.8",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@types/react": "^18.3.13",
+		"@types/react-dom": "^18.3.1",
+		"@vitejs/plugin-react-swc": "^3.7.2",
+		"openapi-typescript": "^7.4.4",
+		"typescript": "^5.7.2",
+		"vite": "^6.0.2"
+	},
+	"engines": {
+		"node": ">=18.0.0"
+	}
+}
