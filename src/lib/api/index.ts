@@ -1,5 +1,8 @@
-import createClient, { type Middleware } from "openapi-fetch";
+import createFetchClient, { type Middleware } from "openapi-fetch";
+import createClient from "openapi-react-query";
 import type { paths } from "./v1";
+
+const baseUrl = "https://catfact.ninja/";
 
 const throwOnError: Middleware = {
 	async onResponse({ response }) {
@@ -13,8 +16,28 @@ const throwOnError: Middleware = {
 	},
 };
 
-const client = createClient<paths>({ baseUrl: "https://catfact.ninja/" });
+const myMiddleware: Middleware = {
+	// async onRequest({ request, options }) {
+	// 	// set "foo" header
+	// 	request.headers.set("foo", "bar");
+	// 	return request;
+	// },
+	async onResponse({ request, response, options }) {
+		const { body, ...resOptions } = response;
+		// change status of response
+		return new Response(body, { ...resOptions, status: 200 });
+	},
+	async onError({ error }) {
+		// wrap errors thrown by fetch
+		return new Error("Oops, fetch failed", { cause: error });
+	},
+};
 
-client.use(throwOnError);
+export const client = createFetchClient<paths>({
+	baseUrl,
+});
+client.use(myMiddleware);
+// export default client;
 
-export default client;
+// export const $api = createClient(client);
+// export default $api;

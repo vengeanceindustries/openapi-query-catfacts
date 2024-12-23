@@ -5,7 +5,6 @@
 	"scripts": {
 		"test:ts": "tsc --noEmit",
 		"dev": "vite dev",
-		"example": "npx openapi-typescript https://myapi.dev/v1/ -o ./src/lib/api/my-openapi-3-schema.d.ts",
 		"generate": "npx openapi-typescript https://catfact.ninja/docs/api-docs.json -o ./src/lib/api/v1.d.ts"
 	},
 	"dependencies": {
